@@ -34,8 +34,8 @@ class App extends Component {
       <div className="App">
         <TodoList
           changeHandler={this.changeHandler}
-          todoText={this.state.todoText}
           addTodo={this.addTodo}
+          todoText={this.state.todoText}
         />
         <div className="App-intro">
           <Todos todos={this.props.todos} />

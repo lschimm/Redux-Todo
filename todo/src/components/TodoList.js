@@ -5,8 +5,8 @@ const TodoList = props => {
     <div className="form">
       <input
         name="todoText"
-        value={props.todoText}
         type="text"
+        value={props.todoText}
         onChange={props.changeHandler}
         placeholder="Add Todo Here"
       />
