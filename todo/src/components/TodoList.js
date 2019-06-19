@@ -1,48 +1,18 @@
-import React from "react";
-import { connect } from "react-redux";
-import { addNewTask, toggleTask } from "../actions";
+import React, { Component } from "react";
 
-class TodoList extends React.Component {
-  state = {
-    newTask: ""
-  };
-
-  handleChanges = e => {
-    this.setState({ newTask: e.target.value });
-  };
-
-  addTask = e => {
-    e.preventDefault();
-    this.props.addNewTask(this.state.newTask);
-    this.setState({ newTask: "" });
-  };
-
-  toggleTask = (e, index) => {
-    e.preventDefault();
-    this.props.toggleTask(index);
-  };
-
-  render() {
-    return (
-      <React.Fragment>
-        <div className="task-list">
-          {this.props.tasks.map((task, index) => (
-            <h3 onClick={e => this.toggleTask(e, index)} key={index}>
-              {task.name}
-              {task.taskStatus && <i class="fas fa-check" />}
-            </h3>
-          ))}
-        </div>
-        <input
-          type="text"
-          value={this.state.newTask}
-          onChange={this.handleChanges}
-          placeholder="Add new task"
-        />
-        <button onClick={this.addTask}>Add Task</button>
-      </React.Fragment>
-    );
-  }
-}
+const TodoList = props => {
+  return (
+    <div className="form">
+      <input
+        name="todoText"
+        value={props.todoText}
+        type="text"
+        onChange={props.changeHandler}
+        placeholder="Add Todo Here"
+      />
+      <button onClick={props.addTodo}>Add Task</button>
+    </div>
+  );
+};
 
 export default TodoList;

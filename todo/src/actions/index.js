@@ -1,26 +1,16 @@
-export const UPDATE_TODO = "UPDATE_TODO";
-export function updateTodo(newTodo) {
-  console.log("action", newTodo);
-  return {
-    type: UPDATE_TODO,
-    payload: newTodo
-  };
-}
+export const ADD_TODO = "ADD_TODO";
+export const COMPLETE_TODO = "COMPLETE_TODO";
 
-export const ADD_NEW_TODO = "ADD_NEW_TODO";
-export const addNewTodo = newTodo => {
-  console.log(newTodo);
+export const addTodo = todo => {
   return {
-    type: ADD_NEW_TODO,
-    payload: newTodo
+    type: ADD_TODO,
+    payload: todo
   };
 };
 
-export const TOGGLE_TODO = "TOGGLE_TODO";
-export const toggleTodo = index => {
-  console.log(index);
+export const completeTodo = todoId => {
   return {
-    type: TOGGLE_TODO,
-    payload: index
+    type: COMPLETE_TODO,
+    payload: todoId
   };
 };

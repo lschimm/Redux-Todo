@@ -3,20 +3,17 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 
-import TodoList from "./components/TodoList";
-
 import { createStore } from "redux";
-import { Provider } from "./reducers";
-import rootReducer from "./reducers";
+import { Provider } from "react-redux";
+import { todosReducer } from "./reducers";
 
-const store = createStore(rootReducer);
+const store = createStore(todosReducer);
 
-function Index() {
-  return (
-    <div className="App">
-      <TodoList />
-    </div>
-  );
-}
+ReactDOM.render(
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  document.getElementById("root")
+);
 
-ReactDOM.render(<App />, document.getElementById("root"));
+// import { todoReducer } from '
